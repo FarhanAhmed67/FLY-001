@@ -1,0 +1,237 @@
+{
+    "interaction_count": 63,
+    "current_state": {
+        "concept": "MOVE",
+        "direction": "LEFT",
+        "intensity": "BRIGHT",
+        "temporal": "STATIC"
+    },
+    "previous_state": {
+        "concept": "MOVE",
+        "direction": "RIGHT",
+        "intensity": "BRIGHT",
+        "temporal": "STATIC"
+    },
+    "history": [
+        {
+            "interaction": 44,
+            "message": "go left",
+            "state": {
+                "concept": "MOVE",
+                "direction": "LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-02T22:46:25.991846"
+        },
+        {
+            "interaction": 45,
+            "message": "yes",
+            "state": {
+                "concept": "YES",
+                "direction": "CENTER_RIGHT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-02T22:49:18.521584"
+        },
+        {
+            "interaction": 46,
+            "message": "go left",
+            "state": {
+                "concept": "MOVE",
+                "direction": "LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-02T22:49:20.351628"
+        },
+        {
+            "interaction": 47,
+            "message": "go left",
+            "state": {
+                "concept": "MOVE",
+                "direction": "LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-02T22:51:52.449551"
+        },
+        {
+            "interaction": 48,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-02T23:11:10.366277"
+        },
+        {
+            "interaction": 49,
+            "message": "go left",
+            "state": {
+                "concept": "MOVE",
+                "direction": "LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-02T23:11:39.319237"
+        },
+        {
+            "interaction": 50,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T02:32:42.236601"
+        },
+        {
+            "interaction": 51,
+            "message": "go right",
+            "state": {
+                "concept": "MOVE",
+                "direction": "RIGHT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T02:32:46.432649"
+        },
+        {
+            "interaction": 52,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T02:36:10.075002"
+        },
+        {
+            "interaction": 53,
+            "message": "go left",
+            "state": {
+                "concept": "MOVE",
+                "direction": "LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T02:36:13.609039"
+        },
+        {
+            "interaction": 54,
+            "message": "yes",
+            "state": {
+                "concept": "YES",
+                "direction": "CENTER_RIGHT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T02:36:16.506173"
+        },
+        {
+            "interaction": 55,
+            "message": "no",
+            "state": {
+                "concept": "NO",
+                "direction": "CENTER_LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T02:36:19.585385"
+        },
+        {
+            "interaction": 56,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-04T00:41:15.212565"
+        },
+        {
+            "interaction": 57,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-04T00:41:22.587899"
+        },
+        {
+            "interaction": 58,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T21:31:31.544592"
+        },
+        {
+            "interaction": 59,
+            "message": "go left",
+            "state": {
+                "concept": "MOVE",
+                "direction": "LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T21:37:51.589752"
+        },
+        {
+            "interaction": 60,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T21:55:10.634578"
+        },
+        {
+            "interaction": 61,
+            "message": "hello",
+            "state": {
+                "concept": "HELLO",
+                "direction": "CENTER",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T22:14:29.579794"
+        },
+        {
+            "interaction": 62,
+            "message": "go right",
+            "state": {
+                "concept": "MOVE",
+                "direction": "RIGHT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T22:14:44.626398"
+        },
+        {
+            "interaction": 63,
+            "message": "go left",
+            "state": {
+                "concept": "MOVE",
+                "direction": "LEFT",
+                "intensity": "BRIGHT",
+                "temporal": "STATIC"
+            },
+            "timestamp": "2026-10-03T22:15:00.629820"
+        }
+    ]
+}

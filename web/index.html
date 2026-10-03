@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>FLY-001 // Neural Organism</title>
+
+<link rel="stylesheet" href="/style.css">
+
+<script type="module"
+  src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js">
+</script>
+</head>
+
+<body>
+
+<div class="app-shell">
+
+  <!-- HEADER -->
+  <header class="terminal-header">
+
+    <div class="brand">
+
+      <div class="brand-logo">
+        <img
+          src="/assets/fly001-logo-white-transparent.png"
+          alt="FLY-001"
+          onerror="this.style.display='none';this.parentElement.classList.add('logo-fallback')"
+        >
+        <span>FLY</span>
+      </div>
+
+      <div class="brand-text">
+        <div class="brand-title">FLY-001</div>
+        <div class="brand-subtitle">SIMULATED NEURAL ORGANISM</div>
+      </div>
+
+    </div>
+
+    <div class="system-status">
+      <span class="status-indicator"></span>
+      <span id="connection">CONNECTING</span>
+    </div>
+
+  </header>
+
+
+  <!-- NAV -->
+  <nav class="terminal-nav">
+
+    <button class="tab active" data-tab="chat">
+      <span>01</span> CHAT
+    </button>
+
+    <button class="tab" data-tab="brain">
+      <span>02</span> BRAIN
+    </button>
+
+    <button class="tab" data-tab="world">
+      <span>03</span> WORLD
+    </button>
+
+  </nav>
+
+
+  <!-- ========================================================= -->
+  <!-- CHAT -->
+  <!-- ========================================================= -->
+
+  <section id="tab-chat" class="tab-content active">
+
+    <div class="terminal-grid chat-grid">
+
+      <!-- CHAT -->
+      <section class="terminal-panel chat-panel">
+
+        <div class="panel-header">
+
+          <div>
+            <div class="eyebrow">NEURAL INTERFACE / INPUT</div>
+            <h1>TALK TO THE FLY</h1>
+          </div>
+
+          <div class="panel-code">
+            N=166700
+          </div>
+
+        </div>
+
+
+        <div class="terminal-bar">
+          <span>SESSION STREAM</span>
+          <span>LIVE</span>
+        </div>
+
+
+        <div id="messages" class="messages">
+
+          <div class="message fly">
+
+            <div class="avatar">FLY</div>
+
+            <div class="bubble">
+              FLY-001 online. Neural interface ready.
+              <span class="time">NOW</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="quick-actions">
+
+          <button data-message="hello">HELLO</button>
+          <button data-message="go left">GO LEFT</button>
+          <button data-message="go right">GO RIGHT</button>
+          <button data-message="yes">YES</button>
+          <button data-message="no">NO</button>
+
+        </div>
+
+
+        <form id="chat-form" class="composer">
+
+          <span class="prompt">&gt;</span>
+
+          <input
+            id="message-input"
+            autocomplete="off"
+            placeholder="ENTER COMMAND..."
+          >
+
+          <button id="send" type="submit">
+            SEND
+          </button>
+
+        </form>
+
+      </section>
+
+
+      <!-- RIGHT SIDE -->
+      <aside class="terminal-stack">
+
+        <!-- FLY -->
+        <section class="terminal-panel fly-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">VISUAL SYSTEM</div>
+              <h2>FLY VIEW</h2>
+            </div>
+
+            <div class="tracking-status">
+              <span class="status-indicator"></span>
+              TRACKING
+            </div>
+
+          </div>
+
+
+          <div class="model-stage">
+
+            <model-viewer
+              id="fly-model"
+              src="/assets/fruit-fly.glb"
+              alt="3D fruit fly"
+              camera-orbit="0deg 78deg 2.8m"
+              field-of-view="28deg"
+              exposure="1.1"
+              shadow-intensity="0"
+              interaction-prompt="none"
+              camera-controls
+              disable-pan
+              disable-zoom>
+            </model-viewer>
+
+            <div class="model-label top-left">
+              MODEL / DROSOPHILA
+            </div>
+
+            <div class="model-label bottom-left">
+              CURSOR TRACKING ACTIVE
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <!-- BRAIN SUMMARY -->
+        <section class="terminal-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">SYSTEM CORE</div>
+              <h2>NEURAL ACTIVITY</h2>
+            </div>
+
+            <span class="live-marker"></span>
+
+          </div>
+
+
+          <div class="metric-grid">
+
+            <div class="metric">
+              <span>NEURONS</span>
+              <strong>166,700</strong>
+            </div>
+
+            <div class="metric">
+              <span>VISUAL</span>
+              <strong>6,006</strong>
+            </div>
+
+            <div class="metric">
+              <span>DECODED</span>
+              <strong id="decoded">-</strong>
+            </div>
+
+            <div class="metric">
+              <span>CONFIDENCE</span>
+              <strong id="confidence">-</strong>
+            </div>
+
+          </div>
+
+
+          <div class="chart-wrap small-chart">
+            <canvas id="spike-chart"></canvas>
+          </div>
+
+          <div class="chart-label">
+            RECENT NEURAL SPIKES
+          </div>
+
+        </section>
+
+
+        <!-- TELEMETRY -->
+        <section class="terminal-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">LIVE TELEMETRY</div>
+              <h2>INTERNAL STATE</h2>
+            </div>
+
+            <span class="live-marker"></span>
+
+          </div>
+
+
+          <div class="telemetry-grid">
+
+            <div>
+              <span>DIRECTION</span>
+              <strong id="direction">-</strong>
+            </div>
+
+            <div>
+              <span>PREVIOUS</span>
+              <strong id="previous">-</strong>
+            </div>
+
+            <div>
+              <span>BEHAVIOR</span>
+              <strong id="behavior">-</strong>
+            </div>
+
+            <div>
+              <span>DRIVE</span>
+              <strong id="drive">-</strong>
+            </div>
+
+          </div>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================= -->
+  <!-- BRAIN -->
+  <!-- ========================================================= -->
+
+  <section id="tab-brain" class="tab-content">
+
+    <div class="terminal-grid brain-grid">
+
+      <section class="terminal-panel brain-main">
+
+        <div class="panel-header">
+
+          <div>
+            <div class="eyebrow">FLYBRAIN / 166700 NEURONS</div>
+            <h1>NEURAL ACTIVITY</h1>
+          </div>
+
+          <div class="panel-code">
+            CPU / ACTIVE
+          </div>
+
+        </div>
+
+
+        <div class="chart-wrap big-chart">
+          <canvas id="big-chart"></canvas>
+        </div>
+
+
+        <div class="chart-label">
+          NEURAL ACTIVITY / INTERNAL DRIVE / SPIKE HISTORY
+        </div>
+
+
+        <div class="brain-metrics">
+
+          <div class="metric-box">
+            <span>SPIKES</span>
+            <strong id="brain-spikes">-</strong>
+          </div>
+
+          <div class="metric-box">
+            <span>DIRECTION</span>
+            <strong id="brain-direction">-</strong>
+          </div>
+
+          <div class="metric-box">
+            <span>CONFIDENCE</span>
+            <strong id="brain-confidence">-</strong>
+          </div>
+
+          <div class="metric-box">
+            <span>DRIVE</span>
+            <strong id="brain-drive">-</strong>
+          </div>
+
+          <div class="metric-box">
+            <span>ACTIVITY</span>
+            <strong id="brain-activity">-</strong>
+          </div>
+
+          <div class="metric-box">
+            <span>CONCEPT</span>
+            <strong id="brain-concept">-</strong>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <aside class="terminal-stack">
+
+        <section class="terminal-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">INTERNAL STATE</div>
+              <h2>STATE VECTOR</h2>
+            </div>
+
+          </div>
+
+
+          <div class="state-list">
+
+            <div>
+              <span>DIRECTION</span>
+              <strong id="brain-state-direction">-</strong>
+            </div>
+
+            <div>
+              <span>PREVIOUS</span>
+              <strong id="brain-state-previous">-</strong>
+            </div>
+
+            <div>
+              <span>PATTERN</span>
+              <strong id="brain-state-pattern">-</strong>
+            </div>
+
+            <div>
+              <span>STABILITY</span>
+              <strong id="brain-state-stability">-</strong>
+            </div>
+
+            <div>
+              <span>DIRECTION CHANGES</span>
+              <strong id="brain-state-changes">-</strong>
+            </div>
+
+            <div>
+              <span>INTERACTIONS</span>
+              <strong id="brain-interactions">-</strong>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <section class="terminal-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">BEHAVIOR SYSTEM</div>
+              <h2>CURRENT ACTION</h2>
+            </div>
+
+          </div>
+
+
+          <div class="action-display">
+
+            <div class="action-label">BEHAVIOR</div>
+
+            <strong id="brain-behavior">-</strong>
+
+            <div class="action-label">NEURAL PATTERN</div>
+
+          </div>
+
+        </section>
+
+
+        <section class="terminal-panel events-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">EVENT LOG</div>
+              <h2>RECENT EVENTS</h2>
+            </div>
+
+          </div>
+
+
+          <div id="brain-events" class="brain-events">
+
+            <div class="empty-event">
+              WAITING FOR NEURAL EVENTS...
+            </div>
+
+          </div>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+  </section>
+
+
+  <!-- ========================================================= -->
+  <!-- WORLD -->
+  <!-- ========================================================= -->
+
+  <section id="tab-world" class="tab-content">
+
+    <div class="terminal-grid world-grid">
+
+      <section class="terminal-panel world-panel">
+
+        <div class="panel-header">
+
+          <div>
+            <div class="eyebrow">SIMULATED ENVIRONMENT / 100x100</div>
+            <h1>WORLD CONTROL</h1>
+          </div>
+
+          <button id="step-world" class="terminal-button">
+            RUN STEP
+          </button>
+
+        </div>
+
+
+        <div class="world-canvas-wrap">
+
+          <div class="world-overlay top-left">
+            <span class="status-indicator"></span>
+            LIVE WORLD
+          </div>
+
+          <div class="world-overlay top-right">
+            100 X 100
+          </div>
+
+          <canvas
+            id="world-canvas"
+            width="900"
+            height="600">
+          </canvas>
+
+          <div class="world-overlay bottom-left">
+            VISION / FLYBRAIN / DECODER / BEHAVIOR
+          </div>
+
+        </div>
+
+
+        <div class="world-controls">
+
+          <button id="auto-world" class="terminal-button">
+            START AUTO
+          </button>
+
+          <button id="reset-world" class="terminal-button">
+            RESET VIEW
+          </button>
+
+          <span id="world-status">
+            READY
+          </span>
+
+        </div>
+
+      </section>
+
+
+      <aside class="terminal-stack">
+
+        <section class="terminal-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">WORLD STATE</div>
+              <h2>ENVIRONMENT</h2>
+            </div>
+
+          </div>
+
+
+          <div class="state-list">
+
+            <div>
+              <span>FLY X</span>
+              <strong id="wx">-</strong>
+            </div>
+
+            <div>
+              <span>FLY Y</span>
+              <strong id="wy">-</strong>
+            </div>
+
+            <div>
+              <span>TARGET X</span>
+              <strong id="tx">-</strong>
+            </div>
+
+            <div>
+              <span>TARGET Y</span>
+              <strong id="ty">-</strong>
+            </div>
+
+            <div>
+              <span>DISTANCE</span>
+              <strong id="wd">-</strong>
+            </div>
+
+            <div>
+              <span>DIRECTION</span>
+              <strong id="wdir">-</strong>
+            </div>
+
+            <div>
+              <span>BEHAVIOR</span>
+              <strong id="wbeh">-</strong>
+            </div>
+
+            <div>
+              <span>STEPS</span>
+              <strong id="wstep">0</strong>
+            </div>
+
+          </div>
+
+        </section>
+
+
+        <section class="terminal-panel">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">NEURAL LOOP</div>
+              <h2>PROCESS PIPELINE</h2>
+            </div>
+
+          </div>
+
+
+          <div class="pipeline">
+
+            <div>01 / WORLD INPUT</div>
+            <div>02 / VISION</div>
+            <div>03 / FLYBRAIN</div>
+            <div>04 / DECODER</div>
+            <div>05 / BEHAVIOR</div>
+            <div>06 / WORLD ACTION</div>
+
+          </div>
+
+        </section>
+
+
+        <section class="terminal-panel world-decision">
+
+          <div class="panel-header compact">
+
+            <div>
+              <div class="eyebrow">DECISION</div>
+              <h2>NEURAL ACTION</h2>
+            </div>
+
+            <span class="live-marker"></span>
+
+          </div>
+
+
+          <div class="decision-main">
+
+            <strong id="wdir-big">WAITING</strong>
+
+            <span id="wbeh-big">
+              No world step yet
+            </span>
+
+          </div>
+
+
+          <div class="decision-bar">
+            <span id="wconfidence-bar"></span>
+          </div>
+
+        </section>
+
+      </aside>
+
+    </div>
+
+  </section>
+
+
+  <footer class="terminal-footer">
+    <span>FLY-001</span>
+    <span>SIMULATED NERVOUS SYSTEM</span>
+    <span>WEB INTERFACE / SESSION BACKEND</span>
+  </footer>
+
+</div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>
