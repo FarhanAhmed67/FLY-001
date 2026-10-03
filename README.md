@@ -4,6 +4,10 @@
 
 FLY-001 is an experimental computational system built around a simulated fruit-fly nervous system containing approximately **166,700 neurons** and **6,006 visual receptors**.
 
+<img width="1617" height="851" alt="image" src="https://github.com/user-attachments/assets/a98c3cd6-8fe1-42cb-bc9b-af5f8d1af621" />
+
+ LIVE AT: https://fly001chat.duckdns.org
+
 The project explores how a large neural system can transform visual input into persistent neural activity, internal state, memory-like representations, behavioral decisions, and closed-loop interaction with a simulated environment.
 
 The system is not intended to claim biological consciousness or genuine semantic understanding. It is an experimental computational model for studying neural representations and behavior.
@@ -393,11 +397,17 @@ FLY-001 is being developed as an experimental platform for exploring:
 - Predictive behavior
 - Brain-to-behavior decoding
 - Artificial nervous systems
+
+
 The long-term goal is to explore how complex behavior can emerge from interactions between neural representations, internal state, memory, perception, and an environment.
+
+
 Disclaimer
 FLY-001 is a computational research project.
 It does not claim to reproduce the full biological nervous system of Drosophila melanogaster, nor does it claim that the simulated system is conscious, sentient, or capable of genuine human-like understanding.
 Experimental results should be interpreted within the specific simulation and benchmark conditions under which they were obtained.
+
+
 Author
 Farhan Ahmed
 GitHub:
