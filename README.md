@@ -44,6 +44,8 @@ FLY-001 combines a simulated neural system with perception, decoding, internal s
                          Feedback
                             └───────────────►
 
+```
+
 Core System
 Neural System
 FLY-001 uses the FlyBrain computational model with:
@@ -71,7 +73,7 @@ fly_decoder.py	Neural output decoding
 semantic_encoder.py	Semantic input encoding
 web/	Web interface and API
 
-
+```
 Neural Processing
 The core neural loop follows the pattern:
 Visual Input
@@ -90,7 +92,7 @@ Motor / Population Decoders
      │
      ▼
 Behavior
-
+```
 The system can monitor neural firing and aggregate activity across defined motor groups.
 Example motor groups include:
 - Forward
@@ -162,6 +164,8 @@ However, the semantic labels were externally defined and mapped onto neural acti
 Therefore, this result should not be interpreted as evidence that the simulated nervous system possesses genuine semantic understanding.
 Closed-Loop Control
 FLY-001 can connect its neural processing directly to a simulated environment.
+
+```
 Environment
      │
      ▼
@@ -180,7 +184,7 @@ Movement
 Environment
      │
      └────────── Feedback
-
+```
 A five-position closed-loop encoder → brain → decoder experiment achieved:
 100% classification accuracy
 with labels supplied externally.
@@ -266,6 +270,8 @@ CHAT
 BRAIN
 WORLD
 
+
+```
 The deployed interface uses a black-and-white terminal-inspired design.
 Web Architecture
 Browser
@@ -326,7 +332,7 @@ FLY-001/
 │
 ├── requirements.txt
 └── .gitignore
-
+```
 Requirements
 - Python 3.12+
 - NumPy
